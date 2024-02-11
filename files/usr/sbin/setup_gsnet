@@ -1,0 +1,13 @@
+#!/bin/sh
+
+set -e
+
+tinc -b -n gsnet generate-rsa-keys
+
+echo ""
+echo '```'
+printf '# '
+echo "$(uci get tinc.gsnet.Name)"
+echo ""
+cat /etc/tinc/gsnet/rsa_key.pub
+echo '```'
